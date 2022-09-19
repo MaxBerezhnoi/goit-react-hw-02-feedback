@@ -1,0 +1,17 @@
+.button {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  color: brown;
+  background-color: rgb(115, 250, 82);
+  border: solid 2px red;
+  box-shadow: 4px 4px 2px grey;
+}
+.button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.button:hover {
+  border: solid 2px rgb(238, 255, 0);
+  color: rgb(238, 255, 0);
+}
