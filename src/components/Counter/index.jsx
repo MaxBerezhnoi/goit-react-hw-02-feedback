@@ -1,23 +1,73 @@
-import React, { Fragment } from 'react';
-import Button from 'components/Button';
-import button from '../../button.json';
+import React from 'react';
+import './Counter.css';
+
 class Counter extends React.Component {
-    hendeleCounter = event => {
-            console.log("+2");
+    state = {
+        good: 0,
+        neutral: 0,
+        bad: 0
     };
+    
+    onGood = () => {
+ 
+        this.setState(prevState => {
+            return { good: prevState.good + 1 }
+        })
+    };
+    
+    onNeutral = () => {
+ 
+        this.setState(prevState => {
+            return { neutral: prevState.neutral + 1 }
+        })
+    };
+    
+    onBad = () => {
+ 
+        this.setState(prevState => {
+            return { bad: prevState.bad + 1 }
+        })
+    };
+    
+       
     
     render() {
       return (
-          <Fragment>
-              <Button button={button} key={button.id} func={this.hendeleCounter} />     
-      <div className="statisticsCounter">
+                  
+              <div className="statisticsCounter">
+              <div className="buttonsBlock">
+      
+        <button
+          className="button"
+          type="button"
+          onClick = {this.onGood}
+        >
+          <span className="button_name">Good</span>
+                      </button>
+                      
+                      <button
+          className="button"
+          type="button"
+          onClick = {this.onNeutral}
+        >
+          <span className="button_name">Neutral</span>
+                      </button>
+                      <button
+          className="button"
+          type="button"
+          onClick = {this.onBad}
+        >
+          <span className="button_name">Bad</span>
+        </button>
+      
+    </div>
         <p>Statistics:</p>
         <ul>
-          <li>Good:</li>
-          <li>Neutral:</li>
-          <li>Bad:</li>
+                      <li>Good: { this.state.good }</li>
+                      <li>Neutral: { this.state.neutral }</li>
+                      <li>Bad: { this.state.bad}</li>
         </ul>
-      </div></Fragment>
+      </div>
         
     );
   }
