@@ -1,5 +1,5 @@
 
-import Counter from './Counter';
+import Section from "./Section";
 export const App = () => {
   return (
     <div
@@ -13,8 +13,8 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <p>Please, don't leave us without feedback.</p>
-      <Counter />
+      
+      <Section title="Please, don't leave us without feedback."/>
     </div>
   );
 };

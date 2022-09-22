@@ -1,6 +1,8 @@
 import React from 'react';
 import './Counter.css';
-
+import ButtonOptions from 'components/ButtonOptions';
+import Statistics from 'components/Statistics';
+import Notification from 'components/Notification';
 class Counter extends React.Component {
     state = {
         good: 0,
@@ -8,6 +10,7 @@ class Counter extends React.Component {
         bad: 0,
         total: 0,
         positiveFeedback: 0,
+        
     };
     
     onGood = () => {
@@ -42,54 +45,32 @@ class Counter extends React.Component {
     };
 
     countPositiveFeedbackPercentage = () => {
+        
         this.setState(prevState => {
-    return { positiveFeedback: ((prevState.good/prevState.total)*100)}
-})
-    }
+            let positivePercentage = ((prevState.good / prevState.total) * 100)
+            return { positiveFeedback: positivePercentage.toFixed(2) }
+        })
+    };
       
     
-    render() {
-      return (
+
+   
+            render() {
+                return (
                   
-              <div className="statisticsCounter">
-              <div className="buttonsBlock">
-      
-        <button
-          className="button"
-          type="button"
-          onClick = {this.onGood}
-        >
-          <span className="button_name">Good</span>
-                      </button>
-                      
-                      <button
-          className="button"
-          type="button"
-          onClick = {this.onNeutral}
-        >
-          <span className="button_name">Neutral</span>
-                      </button>
-                      <button
-          className="button"
-          type="button"
-          onClick = {this.onBad}
-        >
-          <span className="button_name">Bad</span>
-        </button>
-      
-    </div>
-        <p>Statistics:</p>
-        <ul>
-                      <li>Good: { this.state.good }</li>
-                      <li>Neutral: { this.state.neutral }</li>
-                  <li>Bad: {this.state.bad}</li>
-                  <li>Total: {this.state.total}</li>
-                  <li>Positive feedback: { this.state.positiveFeedback }%</li>
-        </ul>
-      </div>
+                    <div className="statisticsCounter">
+                        {this.state.total === 0 && <Notification message="There is no feedback" />}
+                        <ButtonOptions onGood={this.onGood} onNeutral={this.onNeutral} onBad={this.onBad} />
+              
+                        {this.state.total !== 0 && <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positiveFeedback={this.state.positiveFeedback} />}
+                   
         
-    );
-  }
-}
+                    </div>
+        
+                );
+            }
+        }
+    
+    
 
 export default Counter;
