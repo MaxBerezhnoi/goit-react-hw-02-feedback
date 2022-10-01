@@ -1,4 +1,6 @@
-export default function Statistics({good, neutral, bad, total, positiveFeedback}) {
+
+
+export default function Statistics({ good, neutral, bad, total, positiveFeedback }) {
     return (
 <div>
                   <p>Statistics:</p>
@@ -12,3 +14,12 @@ export default function Statistics({good, neutral, bad, total, positiveFeedback}
               </div>
     )
 }
+
+/*Statistics.PropTypes = {
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+    total: PropTypes.number,
+        positiveFeedback: PropTypes.number
+        
+}*/
