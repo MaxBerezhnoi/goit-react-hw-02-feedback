@@ -1,7 +1,7 @@
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import css from './FeedbackOptions.module.css';
-export default function FeedbackOptions({ options, handler }) {
+export const FeedbackOptions = ({ options, handler}) => {
     return (
         <div className={css.buttonsBlock}>
       
@@ -16,8 +16,11 @@ export default function FeedbackOptions({ options, handler }) {
           </button>))}
 
           
-              </div>
-    )
+              </div>)
+    
 }
 
-//ButtonOptions.PropTypes = { onGood: PropTypes.element, onNeutral: PropTypes.element, onBad: PropTypes.element }
+FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
+  handler: PropTypes.element.isRequired,
+}
