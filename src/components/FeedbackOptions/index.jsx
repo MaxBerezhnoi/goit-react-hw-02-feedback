@@ -8,11 +8,12 @@ export const FeedbackOptions = ({ options, handler}) => {
         { options.map(item =>
         (
           <button
+            value={item}
             className={css.button}
             type="button"
             onClick={handler}
           >
-            <span className={css.button_name}>{item}</span>
+            {item}
           </button>))}
 
           

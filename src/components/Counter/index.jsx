@@ -6,7 +6,7 @@ import { Notification } from '../Notification';
 
 class Counter extends React.Component {
   state = {
-    good: 1,
+    good: 0,
     neutral: 0,
     bad: 0,
   };
@@ -35,9 +35,9 @@ class Counter extends React.Component {
         })
         this.countTotalFeedback();
     };*/
-
-    handelFeedback = (vote) => {
-        
+    
+    handelFeedback = (e) => {
+        let vote = e.currentTarget.value;
     this.setState(prevState => {
       return { [vote]: prevState[vote] + 1 };
     });
