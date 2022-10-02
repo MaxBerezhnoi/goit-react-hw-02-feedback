@@ -8,6 +8,7 @@ export const FeedbackOptions = ({ options, handler}) => {
         { options.map(item =>
         (
           <button
+            key={item}
             value={item}
             className={css.button}
             type="button"
@@ -23,5 +24,5 @@ export const FeedbackOptions = ({ options, handler}) => {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.array.isRequired,
-  handler: PropTypes.element.isRequired,
+ handler: PropTypes.func.isRequired,
 }
