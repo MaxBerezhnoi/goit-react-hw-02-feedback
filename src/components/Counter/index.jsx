@@ -11,30 +11,6 @@ class Counter extends React.Component {
     bad: 0,
   };
 
-  /*
-    onGood = () => {
- 
-        this.setState(prevState => {
-            return { good: prevState.good + 1 }
-        })
-        this.countTotalFeedback();
-    };
-    
-    onNeutral = () => {
- 
-        this.setState(prevState => {
-            return { neutral: prevState.neutral + 1 }
-        })
-        this.countTotalFeedback();
-    };
-    
-    onBad = () => {
- 
-        this.setState(prevState => {
-            return { bad: prevState.bad + 1 }
-        })
-        this.countTotalFeedback();
-    };*/
     
     handelFeedback = (e) => {
         let vote = e.currentTarget.value;
@@ -74,7 +50,7 @@ class Counter extends React.Component {
           <FeedbackOptions
             options={Object.keys(this.state)}
                     handler={this.handelFeedback}
-                    state={this.state}
+                    //state={this.state}
           />
         </Section>
         <Section title="Statistics:">

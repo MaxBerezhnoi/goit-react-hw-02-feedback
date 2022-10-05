@@ -23,6 +23,6 @@ export const FeedbackOptions = ({ options, handler}) => {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
  handler: PropTypes.func.isRequired,
 }
